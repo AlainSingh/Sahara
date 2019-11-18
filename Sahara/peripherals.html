@@ -14,7 +14,63 @@
         height: 200px;
         object-fit: cover;
       }
-  </style>
+/* Popup container - can be anything you want */
+.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* The actual popup */
+.popup .popuptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -80px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;} 
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
+</style>
 
 </head>
 
@@ -68,46 +124,62 @@
                 <div class="container">
                     <div class="d-flex p-4">
                         <div class="col" style="background-color:lavender;">
-                            <img src="inv/mouse.JPG">
+                               <img src="inv/project pics/Peripherals/Acer.JPG">
                             <button class="btn btn-danger my-cart-btn" data-id="5" data-name="product 5" data-summary="summary 5" data-price="50" data-quantity="1" data-image="images/img_5.png">Add to Cart</button>
-                            <a href="#" class="btn btn-info">Details</a>
+                           <div class="popup" onclick="myFunction1()">  <a href="#" class="btn btn-info" >Details</a>
+                         <span class="popuptext" id="myPopup1">Name: Acer SB230 <br> Price: $99.99</span>
+						</div>
                         </div>
                         <div class="col" style="background-color:rgb(139, 139, 139);">
-                            <img src="inv/mouse.JPG">
-                            <button class="btn btn-danger my-cart-btn" data-id="5" data-name="product 5" data-summary="summary 5" data-price="50" data-quantity="1" data-image="images/img_5.png">Add to Cart</button>
-                            <a href="#" class="btn btn-info">Details</a>
-                        </div>
+                            <img src="inv/project pics/Peripherals/AllGaming.JPG">
+                           <button class="btn btn-danger my-cart-btn" data-id="5" data-name="product 5" data-summary="summary 5" data-price="50" data-quantity="1" data-image="images/img_5.png">Add to Cart</button>
+                           <div class="popup" onclick="myFunction2()">  <a href="#" class="btn btn-info" >Details</a>
+                         <span class="popuptext" id="myPopup2">Name: Gaming Keyboard & Mouse <br> Price: $34.99</span>
+						</div>
+						</div>
                         <div class="col" style="background-color:lavender;">
-                            <img src="inv/mouse.JPG">
+                             <img src="inv/project pics/Peripherals/Anivia.JPG">
                             <button class="btn btn-danger my-cart-btn" data-id="5" data-name="product 5" data-summary="summary 5" data-price="50" data-quantity="1" data-image="images/img_5.png">Add to Cart</button>
-                            <a href="#" class="btn btn-info">Details</a>
+                           <div class="popup" onclick="myFunction3()">  <a href="#" class="btn btn-info" >Details</a>
+                         <span class="popuptext" id="myPopup3">Name: Anivia 1080p Webcam <br> Price: $26.99</span>
+						</div>
                         </div>
                         <div class="col" style="background-color:rgb(139, 139, 139);">
-                            <img src="inv/mouse.JPG">
+                             <img src="inv/project pics/Peripherals/mouse.JPG">
                             <button class="btn btn-danger my-cart-btn" data-id="5" data-name="product 5" data-summary="summary 5" data-price="50" data-quantity="1" data-image="images/img_5.png">Add to Cart</button>
-                            <a href="#" class="btn btn-info">Details</a>
+                          <div class="popup" onclick="myFunction4()">  <a href="#" class="btn btn-info" >Details</a>
+                         <span class="popuptext" id="myPopup4">Name: Logitech G502<br> Price: $54.00</span>
+						</div>
                         </div>
                     </div>
                     <div class="d-flex p-4">
                         <div class="col" style="background-color:lavender;">
-                            <img src="inv/mouse.JPG">
+                             <img src="inv/project pics/Peripherals/BlueMic.JPG">
                             <button class="btn btn-danger my-cart-btn" data-id="5" data-name="product 5" data-summary="summary 5" data-price="50" data-quantity="1" data-image="images/img_5.png">Add to Cart</button>
-                            <a href="#" class="btn btn-info">Details</a>
+                           <div class="popup" onclick="myFunction5()">  <a href="#" class="btn btn-info" >Details</a>
+                         <span class="popuptext" id="myPopup5">Name: Blue Snowball <br> Price: $49.99</span>
+						</div>
                         </div>
                         <div class="col" style="background-color:rgb(139, 139, 139);">
-                            <img src="inv/mouse.JPG">
+                             <img src="inv/project pics/Peripherals/Fifine.JPG">
                             <button class="btn btn-danger my-cart-btn" data-id="5" data-name="product 5" data-summary="summary 5" data-price="50" data-quantity="1" data-image="images/img_5.png">Add to Cart</button>
-                            <a href="#" class="btn btn-info">Details</a>
+                           <div class="popup" onclick="myFunction6()">  <a href="#" class="btn btn-info" >Details</a>
+                         <span class="popuptext" id="myPopup6">Name: Fifine Microphone<br> Price: $27.99</span>
+						</div>
                         </div>
                         <div class="col" style="background-color:lavender;">
-                            <img src="inv/mouse.JPG">
+                             <img src="inv/project pics/Peripherals/Logitech.JPG">
                             <button class="btn btn-danger my-cart-btn" data-id="5" data-name="product 5" data-summary="summary 5" data-price="50" data-quantity="1" data-image="images/img_5.png">Add to Cart</button>
-                            <a href="#" class="btn btn-info">Details</a>
+                           <div class="popup" onclick="myFunction7()">  <a href="#" class="btn btn-info" >Details</a>
+                         <span class="popuptext" id="myPopup7">Name: Logitech C270 Webcam <br> Price: $19.99</span>
+						</div>
                         </div>
                         <div class="col" style="background-color:rgb(139, 139, 139);">
-                            <img src="inv/mouse.JPG">
+                             <img src="inv/project pics/Peripherals/Samsung.JPG">
                             <button class="btn btn-danger my-cart-btn" data-id="5" data-name="product 5" data-summary="summary 5" data-price="50" data-quantity="1" data-image="images/img_5.png">Add to Cart</button>
-                            <a href="#" class="btn btn-info">Details</a>
+                           <div class="popup" onclick="myFunction8()">  <a href="#" class="btn btn-info" >Details</a>
+                         <span class="popuptext" id="myPopup8">Name: Samsung Curved LED Monitor<br> Price: $179.96</span>
+						</div>
                         </div>
                     </div>
                 </div>
@@ -117,4 +189,40 @@
             </div>
         </div>
     </div>
+		<script>
+// When the user clicks on div, open the popup
+function myFunction1() {
+  var popup = document.getElementById("myPopup1");
+  popup.classList.toggle("show");
+}
+function myFunction2() {
+  var popup = document.getElementById("myPopup2");
+  popup.classList.toggle("show");
+}
+function myFunction3() {
+  var popup = document.getElementById("myPopup3");
+  popup.classList.toggle("show");
+}
+function myFunction4() {
+  var popup = document.getElementById("myPopup4");
+  popup.classList.toggle("show");
+}
+function myFunction5() {
+  var popup = document.getElementById("myPopup5");
+  popup.classList.toggle("show");
+}
+function myFunction6() {
+  var popup = document.getElementById("myPopup6");
+  popup.classList.toggle("show");
+}
+function myFunction7() {
+  var popup = document.getElementById("myPopup7");
+  popup.classList.toggle("show");
+  
+}function myFunction8() {
+  var popup = document.getElementById("myPopup8");
+  popup.classList.toggle("show");
+}
+// make 8 function with differnt id names for bottons for all pages 
+</script>
 </body>
