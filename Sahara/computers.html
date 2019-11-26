@@ -14,6 +14,9 @@
         height: 200px;
         object-fit: cover;
       }
+      body {
+        background-color:rgb(48, 48, 48);
+      }
 /* Popup container - can be anything you want */
 .popup {
   position: relative;
@@ -117,12 +120,13 @@
     
     <div class="container">
         <div class="row">
-            <div class="col-sm-2" style="background-color:#aaa;">
+          <!--
+            <div class="col-sm" style="background-color:#aaa;">
                 
-            </div>
-            <div class="col-sm-8">
+            </div> -->
+            <div class="col-sm">
                 <div class="container">
-                    <div class="d-flex p-4">
+                    <div class="d-flex flex-row p-4">
                         <div class="col" style="background-color:lavender;">
                       <img src="inv/project pics/Computers/Acer.JPG">
                             <button class="btn btn-danger my-cart-btn" data-id="5" data-name="product 5" data-summary="summary 5" data-price="50" data-quantity="1" data-image="images/img_5.png">Add to Cart</button>
@@ -184,9 +188,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-2">
+            <!--
+            <div class="col-sm" style="background-color:#aaa;">
                 
-            </div>
+            </div> -->
         </div>
     </div>
 		<script>
