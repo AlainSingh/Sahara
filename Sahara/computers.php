@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Sahara-computers</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <style>
+      .col img {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        margin: 10px;
+        border-radius: 8px;
+        border-color: black;
+      }
+      .col {
+        border-radius: 12px;
+        border: 3px solid;
+        background-color: rgb(32, 32, 32);
+        margin: 0px 0px 0px 2px;
+      }
+      body {
+        background-color:rgb(48, 48, 48);
+      }
+/* Popup container - can be anything you want */
+.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* The actual popup */
+.popup .popuptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -80px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;} 
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
+</style>
+
+</head>
+
+<body>
+
+  <?php
+    //Conect to local mySQL installation.
+    $db = mysqli_connect("localhost", "c2375a15", "c2375aU!");
+    if (mysqli_errno($db))
+        exit("Error - Could not connect to MySQL");
+    //Select the database to use
+    $er = mysqli_select_db($db,"c2375a15test");
+    if (!$er)
+        exit("Error - Could not select the database!");
+    //Issue SQL request.
+    $query = "select idProduct, nameProduct, priceProduct, detailsProduct from product";
+    $result = mysqli_query($db, $query);
+    if (!$result) {
+      print "Error - query cannot be processed: ";
+      $error = mysqli_error($db);
+      print "$error";
+      exit;
+    }
+    //Process the result.
+    //Create arrays to store information
+    $idArr = array();
+    $nameArr = array();
+    $priceArr = array();
+    $detailsArr = array();
+
+    $num_rows = mysqli_num_rows($result);
+    for($i = 0; $i < $num_rows; $i++){
+      $row = mysqli_fetch_row($result);
+      $idArr[] = $row[0];
+      $nameArr[] = $row[1];
+      $priceArr[] = $row[2];
+      $detailsArr[] = $row[3];
+    }
+  ?>
+    <nav class="navbar navbar-expand-sm justify-content-center bg-dark navbar-dark">
+            <!--LOGO-->
+            <a class="navbar-brand" href='index.html'>
+                <img src="camel.jpg" alt="Camel Logo" style="width:40px;">
+            </a>
+            <ul class="navbar-nav">
+                <!--NavBar LINKS-->
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="computers.html">Computers</a>
+                    </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="tablets.html">Tablets</a>
+                    </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="peripherals.html">Peripherals</a>
+                    </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="cellphones.html">Cellphones</a>
+                    </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="consoles.html">Consoles</a>
+                    </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="cart.html">Cart</a>
+                    </li>
+                
+            </ul>
+            <!--Search Bar-->
+            <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+                    <form class="form-inline" action="/action_page.php">
+                      <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                      <button class="btn btn-primary " type="submit">Search</button>
+                    </form>
+                  </nav>
+    </nav>
+
+    
+    <div class="container">
+        <div class="row">
+          <!--
+            <div class="col-sm" style="background-color:#aaa;">
+                
+            </div> -->
+            <div class="col-sm">
+                <div class="container">
+                    <div class="d-flex flex-row p-4">
+                        <div class="col">
+                      <img src="inv/project pics/Computers/Acer.JPG">
+                            <button class="btn btn-outline-danger my-cart-btn"><?php echo $nameArr[0]?></button>
+                           <div class="popup" onclick="myFunction1()">  <a class="btn btn-outline-info" >Details</a>
+                         <span class="popuptext" id="myPopup1">Name: Acer Aspire<br> Price: $307.25</span>
+						</div>
+                        </div>
+                        <div class="col">
+                            <img src="inv/project pics/Computers/Chrome1.JPG">
+                            <button class="btn btn-danger my-cart-btn">Add to Cart</button>
+                           <div class="popup" onclick="myFunction2()">  <a class="btn btn-info" >Details</a>
+                         <span class="popuptext" id="myPopup2">Name: Lenovo ChromeBook <br> Price: $246.99</span>
+						</div>
+						</div>
+                        <div class="col">
+                            <img src="inv/project pics/Computers/ChromeBook.JPG">
+                            <button class="btn btn-danger my-cart-btn">Add to Cart</button>
+                           <div class="popup" onclick="myFunction3()">  <a class="btn btn-info" >Details</a>
+                         <span class="popuptext" id="myPopup3">Name: Acer ChromeBook <br> Price: $208.90</span>
+						</div>
+                        </div>
+                        <div class="col">
+                            <img src="inv/project pics/Computers/Dell.JPG">
+                            <button class="btn btn-danger my-cart-btn">Add to Cart</button>
+                          <div class="popup" onclick="myFunction4()">  <a class="btn btn-info" >Details</a>
+                         <span class="popuptext" id="myPopup4">Name: Dell ChromeBook <br> Price: $79.99</span>
+						</div>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row p-4">
+                        <div class="col">
+                           <img src="inv/project pics/Computers/Laptop.JPG">
+                           <button class="btn btn-danger my-cart-btn">Add to Cart</button>
+                           <div class="popup" onclick="myFunction5()">  <a class="btn btn-info" >Details</a>
+                         <span class="popuptext" id="myPopup5">Name: Acer Aspire<br> Price: $229.99</span>
+						</div>
+                        </div>
+                        <div class="col">
+                           <img src="inv/project pics/Computers/Lenovo.JPG">
+                           <button class="btn btn-danger my-cart-btn">Add to Cart</button>
+                           <div class="popup" onclick="myFunction6()">  <a class="btn btn-info" >Details</a>
+                         <span class="popuptext" id="myPopup6">Name: Lenovo 11.6" <br> Price: $239.00</span>
+						</div>
+                        </div>
+                        <div class="col">
+                            <img src="inv/project pics/Computers/Mac.JPG">
+                            <button class="btn btn-danger my-cart-btn">Add to Cart</button>
+                           <div class="popup" onclick="myFunction7()">  <a class="btn btn-info" >Details</a>
+                         <span class="popuptext" id="myPopup7">Name: MacBook Air <br> Price: $1,099.77</span>
+						</div>
+                        </div>
+                        <div class="col">
+                            <img src="inv/project pics/Computers/Samsung.JPG">
+                            <button class="btn btn-danger my-cart-btn">Add to Cart</button>
+                           <div class="popup" onclick="myFunction8()">  <a class="btn btn-info" >Details</a>
+                         <span class="popuptext" id="myPopup8">Name: Samsung ChromeBook3<br> Price: $141.00</span>
+						</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--
+            <div class="col-sm" style="background-color:#aaa;">
+                
+            </div> -->
+        </div>
+    </div>
+    <?php
+      //show result of array
+      echo $nameArr[0], $nameArr[1];
+    ?>
+		<script>
+// When the user clicks on div, open the popup
+function myFunction1() {
+  var popup = document.getElementById("myPopup1");
+  popup.classList.toggle("show");
+}
+function myFunction2() {
+  var popup = document.getElementById("myPopup2");
+  popup.classList.toggle("show");
+}
+function myFunction3() {
+  var popup = document.getElementById("myPopup3");
+  popup.classList.toggle("show");
+}
+function myFunction4() {
+  var popup = document.getElementById("myPopup4");
+  popup.classList.toggle("show");
+}
+function myFunction5() {
+  var popup = document.getElementById("myPopup5");
+  popup.classList.toggle("show");
+}
+function myFunction6() {
+  var popup = document.getElementById("myPopup6");
+  popup.classList.toggle("show");
+}
+function myFunction7() {
+  var popup = document.getElementById("myPopup7");
+  popup.classList.toggle("show");
+  
+}function myFunction8() {
+  var popup = document.getElementById("myPopup8");
+  popup.classList.toggle("show");
+}
+// make 8 function with differnt id names for bottons for all pages 
+</script>
+</body>
