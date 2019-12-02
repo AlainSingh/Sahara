@@ -8,6 +8,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="data.js"></script>
   <style>
       .col img {
         width: 200px;
@@ -85,17 +86,20 @@
 </style>
 
 </head>
-
+<script>
+  getCache(); 
+  window.alert(pName[20]);
+</script>
 <body>
     <nav class="navbar navbar-expand-sm justify-content-center bg-dark navbar-dark">
             <!--LOGO-->
-            <a class="navbar-brand" href='index.html'>
+            <a class="navbar-brand" href='index.php'>
                 <img src="camel.jpg" alt="Camel Logo" style="width:40px;">
             </a>
             <ul class="navbar-nav">
                 <!--NavBar LINKS-->
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">Home</a>
+                    <a class="nav-link" href="index.php">Home</a>
                     </li>
                 <li class="nav-item">
                     <a class="nav-link disabled" href="computers.html">Computers</a>
@@ -139,7 +143,7 @@
                         <div class="col">
                       <img src="inv/project pics/Computers/Acer.JPG">
                             <button class="btn btn-outline-danger my-cart-btn">Add to Cart</button>
-                           <div class="popup" onclick="myFunction1()">  <a class="btn btn-outline-info" >Details</a>
+                           <div class="popup" onclick="myFunction1()">  <a class="btn btn-outline-dark" >Details</a>
                          <span class="popuptext" id="myPopup1">Name: Acer Aspire<br> Price: $307.25</span>
 						</div>
                         </div>
@@ -203,6 +207,7 @@
             </div> -->
         </div>
     </div>
+
 		<script>
 // When the user clicks on div, open the popup
 function myFunction1() {
