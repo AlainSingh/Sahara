@@ -31,7 +31,7 @@
                     <a class="nav-link disabled" href="computers.html">Computers</a>
                     </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="tablets.html">Tablets</a>
+                    <a class="nav-link" onclick="saveCache()" href="tablets.html">Tablets</a>
                     </li>
                 <li class="nav-item">
                     <a class="nav-link" href="peripherals.html">Peripherals</a>
@@ -70,7 +70,7 @@
                       <img src="inv/project pics/Computers/Acer.JPG">
                             <button class="btn btn-primary my-cart-btn btn-sm" onclick="addCart(0)">Add to Cart</button>
                            <div class="popup" onclick="myFunction1()">  <a class="btn btn-info btn-sm" >Details</a>
-                         <span class="popuptext" id="myPopup1">Name: Acer Aspire<br> Price: $307.25</span>
+                         <span class="popuptext" id="myPopup1"><script>document.innerHTML = pName[0];</script></span>
 						</div>
                         </div>
                         <div class="col">
