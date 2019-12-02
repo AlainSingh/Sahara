@@ -8,6 +8,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="data.js"></script>
   <style>
       .col img {
         width: 200px;
@@ -85,52 +86,20 @@
 </style>
 
 </head>
-
+<script>
+  getCache(); 
+  window.alert(pName[20]);
+</script>
 <body>
-
-  <?php
-    //Conect to local mySQL installation.
-    $db = mysqli_connect("localhost", "c2375a15", "c2375aU!");
-    if (mysqli_errno($db))
-        exit("Error - Could not connect to MySQL");
-    //Select the database to use
-    $er = mysqli_select_db($db,"c2375a15test");
-    if (!$er)
-        exit("Error - Could not select the database!");
-    //Issue SQL request.
-    $query = "select idProduct, nameProduct, priceProduct, detailsProduct from product";
-    $result = mysqli_query($db, $query);
-    if (!$result) {
-      print "Error - query cannot be processed: ";
-      $error = mysqli_error($db);
-      print "$error";
-      exit;
-    }
-    //Process the result.
-    //Create arrays to store information
-    $idArr = array();
-    $nameArr = array();
-    $priceArr = array();
-    $detailsArr = array();
-
-    $num_rows = mysqli_num_rows($result);
-    for($i = 0; $i < $num_rows; $i++){
-      $row = mysqli_fetch_row($result);
-      $idArr[] = $row[0];
-      $nameArr[] = $row[1];
-      $priceArr[] = $row[2];
-      $detailsArr[] = $row[3];
-    }
-  ?>
     <nav class="navbar navbar-expand-sm justify-content-center bg-dark navbar-dark">
             <!--LOGO-->
-            <a class="navbar-brand" href='index.html'>
+            <a class="navbar-brand" href='index.php'>
                 <img src="camel.jpg" alt="Camel Logo" style="width:40px;">
             </a>
             <ul class="navbar-nav">
                 <!--NavBar LINKS-->
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">Home</a>
+                    <a class="nav-link" href="index.php">Home</a>
                     </li>
                 <li class="nav-item">
                     <a class="nav-link disabled" href="computers.html">Computers</a>
@@ -173,8 +142,8 @@
                     <div class="d-flex flex-row p-4">
                         <div class="col">
                       <img src="inv/project pics/Computers/Acer.JPG">
-                            <button class="btn btn-outline-danger my-cart-btn"><?php echo $nameArr[0]?></button>
-                           <div class="popup" onclick="myFunction1()">  <a class="btn btn-outline-info" >Details</a>
+                            <button class="btn btn-outline-danger my-cart-btn">Add to Cart</button>
+                           <div class="popup" onclick="myFunction1()">  <a class="btn btn-outline-dark" >Details</a>
                          <span class="popuptext" id="myPopup1">Name: Acer Aspire<br> Price: $307.25</span>
 						</div>
                         </div>
@@ -238,10 +207,7 @@
             </div> -->
         </div>
     </div>
-    <?php
-      //show result of array
-      echo $nameArr[0], $nameArr[1];
-    ?>
+
 		<script>
 // When the user clicks on div, open the popup
 function myFunction1() {
