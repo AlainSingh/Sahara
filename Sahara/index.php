@@ -108,7 +108,7 @@
                     </form>
                   </nav>
     </nav>
-
+    <h1>Sahara</h1>
     <!--Carousel-->
     <div id="myCarousel" class="carousel slide bg-inverse w-50 h-80 ml-auto mr-auto" data-ride="carousel">
             <div class="carousel-inner" role="listbox">
@@ -131,5 +131,4 @@
               <span class="sr-only">Next</span>
             </a>
           </div>
-          <?php echo $nameArr[0]?>
 </body>
