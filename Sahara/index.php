@@ -9,6 +9,8 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="data.js"></script>
+  <script type="text/javascript" src="cart.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
   <style>
         /* Make the image fully responsive */
         .carousel-inner img {
@@ -55,7 +57,6 @@
       $detailsArr[] = $row[3];
       $quantityArr[] = $row[4];
     }
-    //echo json_encode(array($idArr,$nameArr,$priceArr,$detailsArr,$quantityArr));
   
   ?>
   <script>
@@ -108,8 +109,14 @@
                     </form>
                   </nav>
     </nav>
-    <h1>Sahara</h1>
+    
+
+<h1>SAHARA</h1>
+<h2>The Ultimate Electronic Shopping Experience</h2>
+
+
     <!--Carousel-->
+    <!--
     <div id="myCarousel" class="carousel slide bg-inverse w-50 h-80 ml-auto mr-auto" data-ride="carousel">
             <div class="carousel-inner" role="listbox">
               <div class="carousel-item active">
@@ -131,4 +138,5 @@
               <span class="sr-only">Next</span>
             </a>
           </div>
+  -->
 </body>
