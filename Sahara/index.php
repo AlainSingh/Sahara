@@ -73,7 +73,7 @@
     <nav class="navbar navbar-expand-sm justify-content-center bg-dark navbar-dark">
             <!--LOGO-->
             <a class="navbar-brand" href="#">
-                <img src="eye.jpg" alt="Logo of eye" style="width:40px;">
+                <img src="camel.jpg" alt="Logo of Camel" style="width:40px;">
             </a>
             <ul class="navbar-nav">
                 <!--NavBar LINKS-->

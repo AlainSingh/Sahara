@@ -1,4 +1,10 @@
 
+//initializes global variables
+var pId;
+var pName ;
+var pPrice;
+var pDetails;
+var pQuantity;
 
 function saveCache(){
 //Save variables to cache
@@ -9,13 +15,6 @@ localStorage.setItem("pDetails", JSON.stringify(pDetails));
 localStorage.setItem("pQuantity", JSON.stringify(pQuantity));
 
 }
-
-//initializes global variables
-var pId;
-var pName ;
-var pPrice;
-var pDetails;
-var pQuantity;
 
 function getCache(){
 //Retrieve variables from cache

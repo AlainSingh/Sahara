@@ -1,107 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Sahara-cellphones</title>
+  <title>Sahara-computers</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  <style>
-      .col img {
-        width: 150x;
-        height: 200px;
-        object-fit: cover;
-      }
-/* Popup container - can be anything you want */
-.popup {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-/* The actual popup */
-.popup .popuptext {
-  visibility: hidden;
-  width: 160px;
-  background-color: #555;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 8px 0;
-  position: absolute;
-  z-index: 1;
-  bottom: 125%;
-  left: 50%;
-  margin-left: -80px;
-}
-
-/* Popup arrow */
-.popup .popuptext::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #555 transparent transparent transparent;
-}
-
-/* Toggle this class - hide and show the popup */
-.popup .show {
-  visibility: visible;
-  -webkit-animation: fadeIn 1s;
-  animation: fadeIn 1s;
-}
-
-/* Add animation (fade in the popup) */
-@-webkit-keyframes fadeIn {
-  from {opacity: 0;} 
-  to {opacity: 1;}
-}
-
-@keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity:1 ;}
-}
-</style>
+  <script type="text/javascript" src="data.js"></script>
+  <script type="text/javascript" src="cart.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
 
 </head>
-
+<script>
+  getCache();
+</script>
 <body>
     <nav class="navbar navbar-expand-sm justify-content-center bg-dark navbar-dark">
             <!--LOGO-->
-            <a class="navbar-brand" href='index.html'>
-                <img src="eye.jpg" alt="Logo of eye" style="width:40px;">
+            <a class="navbar-brand" href='index.php'>
+                <img src="camel.jpg" alt="Camel Logo" style="width:40px;">
             </a>
             <ul class="navbar-nav">
                 <!--NavBar LINKS-->
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">Home</a>
+                    <a class="nav-link" href="index.php">Home</a>
                     </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="computers.html">Computers</a>
+                    <a class="nav-link" onclick="saveCache()" href="computers.html">Computers</a>
                     </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="tablets.html">Tablets</a>
+                    <a class="nav-link" onclick="saveCache()" href="tablets.html">Tablets</a>
                     </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="peripherals.html">Peripherals</a>
+                    <a class="nav-link" onclick="saveCache()" href="peripherals.html">Peripherals</a>
                     </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="cellphones.html">Cellphones</a>
+                    <a class="nav-link disabled" onclick="saveCache()" href="cellphones.html">Cellphones</a>
                     </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="consoles.html">Consoles</a>
+                    <a class="nav-link" onclick="saveCache()" href="consoles.html">Consoles</a>
                     </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="cart.html">Cart</a>
+                    <a class="nav-link" onclick="saveCache()" href="cart.html">Cart</a>
                     </li>
                 
             </ul>
@@ -117,78 +59,81 @@
     
     <div class="container">
         <div class="row">
-            <div class="col-sm-2" style="background-color:#aaa;">
+          <!--
+            <div class="col-sm" style="background-color:#aaa;">
                 
-            </div>
-            <div class="col-sm-8">
+            </div> -->
+            <div class="col-sm">
                 <div class="container">
-                    <div class="d-flex p-4">
-                        <div class="col" style="background-color:lavender;">
-                            <img src="inv/project pics/Cellphones/BLU2.JPG">
-                            <button class="btn btn-danger my-cart-btn" data-id="5" data-name="product 5" data-summary="summary 5" data-price="50" data-quantity="1" data-image="images/img_5.png">Add to Cart</button>
-                           <div class="popup" onclick="myFunction1()">  <a href="#" class="btn btn-info" >Details</a>
-                         <span class="popuptext" id="myPopup1">Name: BLU Vivo<br> Price: $99.99</span>
+                    <div class="d-flex flex-row p-4">
+                        <div class="col">
+                      <img src="inv/projectpics/Cellphones/1.JPG">
+                            <button class="btn btn-primary my-cart-btn btn-sm" onclick="addCart(24)">Add to Cart</button>
+                           <div class="popup" onclick="myFunction1()">  <a class="btn btn-info btn-sm" >Details</a>
+                         <span class="popuptext" id="myPopup1">Name: Acer Aspire E 15 <br> Price: $307.25</span>
+						</div>
+                        </div>
+                        <div class="col">
+                            <img src="inv/projectpics/Cellphones/2.JPG">
+                            <button class="btn btn-primary my-cart-btn btn-sm" onclick="addCart(25)">Add to Cart</button>
+                           <div class="popup" onclick="myFunction2()">  <a class="btn btn-info btn-sm" >Details</a>
+                         <span class="popuptext" id="myPopup2">Name: Lenovo ChromeBook <br> Price: $246.99</span>
 						</div>
 						</div>
-                        <div class="col" style="background-color:rgb(139, 139, 139);">
-							<img src="inv/project pics/Cellphones/Bold.JPG">
-                            <button class="btn btn-danger my-cart-btn" data-id="5" data-name="product 5" data-summary="summary 5" data-price="50" data-quantity="1" data-image="images/img_5.png">Add to Cart</button>
-                           <div class="popup" onclick="myFunction2()">  <a href="#" class="btn btn-info" >Details</a>
-                         <span class="popuptext" id="myPopup2">Name: Bold N1<br> Price: $119.99</span>
+                        <div class="col">
+                            <img src="inv/projectpics/Cellphones/3.JPG">
+                            <button class="btn btn-primary my-cart-btn btn-sm" onclick="addCart(26)">Add to Cart</button>
+                           <div class="popup" onclick="myFunction3()">  <a class="btn btn-info btn-sm" >Details</a>
+                         <span class="popuptext" id="myPopup3">Name: Acer ChromeBook <br> Price: $208.90</span>
 						</div>
+                        </div>
+                        <div class="col">
+                            <img src="inv/projectpics/Cellphones/4.JPG">
+                            <button class="btn btn-primary my-cart-btn btn-sm" onclick="addCart(27)">Add to Cart</button>
+                          <div class="popup" onclick="myFunction4()">  <a class="btn btn-info btn-sm" >Details</a>
+                         <span class="popuptext" id="myPopup4">Name: Dell ChromeBook <br> Price: $79.99</span>
 						</div>
-                        <div class="col" style="background-color:lavender;">
-                             <img src="inv/project pics/Cellphones/Google.JPG">
-                            <button class="btn btn-danger my-cart-btn" data-id="5" data-name="product 5" data-summary="summary 5" data-price="50" data-quantity="1" data-image="images/img_5.png">Add to Cart</button>
-                           <div class="popup" onclick="myFunction3()">  <a href="#" class="btn btn-info" >Details</a>
-                         <span class="popuptext" id="myPopup3">Name: Google Pixel <br> Price: $368.04</span>
-						</div>
-						</div>
-                        <div class="col" style="background-color:rgb(139, 139, 139);">
-                            <img src="inv/project pics/Cellphones/Iphone.JPG">
-                            <button class="btn btn-danger my-cart-btn" data-id="5" data-name="product 5" data-summary="summary 5" data-price="50" data-quantity="1" data-image="images/img_5.png">Add to Cart</button>
-                           <div class="popup" onclick="myFunction4()">  <a href="#" class="btn btn-info" >Details</a>
-                         <span class="popuptext" id="myPopup4">Name: Iphone 7 <br> Price: $208.00</span>
-						</div>
-						</div>
+                        </div>
                     </div>
-                    <div class="d-flex p-4">
-                        <div class="col" style="background-color:lavender;">
-                            <img src="inv/project pics/Cellphones/Mini.JPG">
-                            <button class="btn btn-danger my-cart-btn" data-id="5" data-name="product 5" data-summary="summary 5" data-price="50" data-quantity="1" data-image="images/img_5.png">Add to Cart</button>
-                           <div class="popup" onclick="myFunction5()">  <a href="#" class="btn btn-info" >Details</a>
-                         <span class="popuptext" id="myPopup5">Name: Mini <br> Price: $84.72</span>
+                    <div class="d-flex flex-row p-4">
+                        <div class="col">
+                           <img src="inv/projectpics/Cellphones/5.JPG">
+                           <button class="btn btn-primary my-cart-btn btn-sm" onclick="addCart(28)">Add to Cart</button>
+                           <div class="popup" onclick="myFunction5()">  <a class="btn btn-info btn-sm" >Details</a>
+                         <span class="popuptext" id="myPopup5">Name: Acer Aspire<br> Price: $229.99</span>
 						</div>
+                        </div>
+                        <div class="col">
+                           <img src="inv/projectpics/Cellphones/6.JPG">
+                           <button class="btn btn-primary my-cart-btn btn-sm" onclick="addCart(29)">Add to Cart</button>
+                           <div class="popup" onclick="myFunction6()">  <a class="btn btn-info btn-sm" >Details</a>
+                         <span class="popuptext" id="myPopup6">Name: Lenovo 11.6" <br> Price: $239.00</span>
 						</div>
-                        <div class="col" style="background-color:rgb(139, 139, 139);">
-                            <img src="inv/project pics/Cellphones/Rugged.JPG">
-                            <button class="btn btn-danger my-cart-btn" data-id="5" data-name="product 5" data-summary="summary 5" data-price="50" data-quantity="1" data-image="images/img_5.png">Add to Cart</button>
-                           <div class="popup" onclick="myFunction6()">  <a href="#" class="btn btn-info" >Details</a>
-                         <span class="popuptext" id="myPopup6">Name: Rugged <br> Price: $249.99</span>
+                        </div>
+                        <div class="col">
+                            <img src="inv/projectpics/Cellphones/7.JPG">
+                            <button class="btn btn-primary my-cart-btn btn-sm" onclick="addCart(30)">Add to Cart</button>
+                           <div class="popup" onclick="myFunction7()">  <a class="btn btn-info btn-sm" >Details</a>
+                         <span class="popuptext" id="myPopup7">Name: MacBook Air <br> Price: $1,099.77</span>
 						</div>
+                        </div>
+                        <div class="col">
+                            <img src="inv/projectpics/Cellphones/8.JPG">
+                            <button class="btn btn-primary my-cart-btn btn-sm" onclick="addCart(31)">Add to Cart</button>
+                           <div class="popup" onclick="myFunction8()">  <a class="btn btn-info btn-sm" >Details</a>
+                         <span class="popuptext" id="myPopup8">Name: Samsung ChromeBook3<br> Price: $141.00</span>
 						</div>
-                        <div class="col" style="background-color:lavender;">
-                            <img src="inv/project pics/Cellphones/Samsung.JPG">
-                            <button class="btn btn-danger my-cart-btn" data-id="5" data-name="product 5" data-summary="summary 5" data-price="50" data-quantity="1" data-image="images/img_5.png">Add to Cart</button>
-                           <div class="popup" onclick="myFunction7()">  <a href="#" class="btn btn-info" >Details</a>
-                         <span class="popuptext" id="myPopup7">Name: Samasung Galaxy S9 <br> Price: $598.84</span>
-						</div>
-						</div>
-                        <div class="col" style="background-color:rgb(139, 139, 139);">
-                            <img src="inv/project pics/Cellphones/ZTE.JPG">
-                            <button class="btn btn-danger my-cart-btn" data-id="5" data-name="product 5" data-summary="summary 5" data-price="50" data-quantity="1" data-image="images/img_5.png">Add to Cart</button>
-                           <div class="popup" onclick="myFunction8()">  <a href="#" class="btn btn-info" >Details</a>
-                         <span class="popuptext" id="myPopup8">Name: ZTE Blade<br> Price: $85.35</span>
-						</div>
-						</div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-2">
+            <!--
+            <div class="col-sm" style="background-color:#aaa;">
                 
-            </div>
+            </div> -->
         </div>
     </div>
+
 		<script>
 // When the user clicks on div, open the popup
 function myFunction1() {
