@@ -4,6 +4,6 @@ function addCart(x){
 }
 
 function removeCart(x){
-    pQuantity[x] == 0;
+    pQuantity[x] = 0;
 }
 

@@ -33,7 +33,7 @@
             <ul class="navbar-nav">
                 <!--NavBar LINKS-->
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">Home</a>
+                    <a class="nav-link" href="index.php">Home</a>
                     </li>
                 <li class="nav-item">
                     <a class="nav-link" onclick="saveCache()" href="computers.html">Computers</a>
@@ -69,56 +69,88 @@
         <div class="row">
             <div class="col-sm-8">
                 <div class="row">
+                  <p id="demo0" style = "color:white;"></p><br>
+                  <p id="demo1" style = "color:white;"></p><br>
+                  <p id="demo2" style = "color:white;"></p><br>
+                  <p id="demo3" style = "color:white;"></p><br>
+                  <p id="demo4" style = "color:white;"></p><br>
+                  <p id="demo5" style = "color:white;"></p><br>
+                  <p id="demo6" style = "color:white;"></p><br>
+                  <p id="demo7" style = "color:white;"></p><br>
+                  <p id="demo8" style = "color:white;"></p><br>
+                  <p id="demo9" style = "color:white;"></p><br>
+                  <p id="demo10" style = "color:white;"></p><br>
+                  <p id="demo11" style = "color:white;"></p><br>
+                  <p id="demo12" style = "color:white;"></p><br>
+                  <p id="demo13" style = "color:white;"></p><br>
+                  <p id="demo14" style = "color:white;"></p><br>
+                  <p id="demo15" style = "color:white;"></p><br>
+                  <p id="demo16" style = "color:white;"></p><br>
+                  <p id="demo17" style = "color:white;"></p><br>
+                  <p id="demo18" style = "color:white;"></p><br>
+                  <p id="demo19" style = "color:white;"></p><br>
+                  <p id="demo20" style = "color:white;"></p><br>
+                  <p id="demo21" style = "color:white;"></p><br>
+                  <p id="demo22" style = "color:white;"></p><br>
+                  <p id="demo23" style = "color:white;"></p><br>
+                  <p id="demo24" style = "color:white;"></p><br>
+                  <p id="demo25" style = "color:white;"></p><br>
+                  <p id="demo26" style = "color:white;"></p><br>
+                  <p id="demo27" style = "color:white;"></p><br>
+                  <p id="demo28" style = "color:white;"></p><br>
+                  <p id="demo29" style = "color:white;"></p><br>
+                  <p id="demo30" style = "color:white;"></p><br>
+                  <p id="demo31" style = "color:white;"></p><br>
+                  <p id="demo32" style = "color:white;"></p><br>
+                  <p id="demo33" style = "color:white;"></p><br>
+                  <p id="demo34" style = "color:white;"></p><br>
+                  <p id="demo35" style = "color:white;"></p><br>
+                  <p id="demo36" style = "color:white;"></p><br>
+                  <p id="demo37" style = "color:white;"></p><br>
+                  <p id="demo38" style = "color:white;"></p><br>
+                  <p id="demo39" style = "color:white;"></p><br>
+
                   <script>
-                    //Populate Cart Items
-                    if(pQuantity[0] > 0){
-                      window.alert('Its greater than 0');
+                    for (var i = 0; i < 40; i++){
+                      //Populate Cart Items
+                      if(pQuantity[i] > 0){
+                        window.alert('Its greater than 0');
+                        document.getElementById("demo" + i).innerHTML = pName[i] + ":  $" + pPrice[i]*pQuantity[i] + "   ";
+                        
+                        //Add Delete Button
+                        var btn = document.createElement("BUTTON");
+                        btn.innerHTML = "Delete";
+                        btn.className = "btn btn-danger btn-sm";
+                        btn.onclick = function(){
+                          document.getElementById("demo" + i).innerHTML = "";
+                          removeCart(i);
+                          console.log(pQuantity);
+                          saveCache();
+                        };
+                        document.getElementById("demo" + i).appendChild(btn);
+                        
+                        var btnPlus = document.createElement("BUTTON");
+                        btnPlus.innerHTML = "+";
+                        btnPlus.className = "btn btn-primary btn-sm";
+                        btnPlus.onclick = function(){
+                          addCart(i);
+                          console.log(pQuantity);
+                          saveCache();
+                        }
+                        document.getElementById("demo" + i).appendChild(btnPlus);
+                        var btnMinus = document.createElement("Button");
+                        btnMinus.innerHTML = "-";
+                        btnMinus.className = "btn btn-warning btn-sm";
+                        btnMinus.onclick = function(){
+                          pQuantity[i]--;
+                          console.log(pQuantity);
+                          saveCache();
+                        }
+                        document.getElementById("demo" + i).appendChild(btnMinus);
+                      }
                     }
                     </script>
-                  <!--
-                    <div class="col">
-                        <img src="inv/laptop.JPG"><br>
-                        <button class="btn btn-danger">Delete</button>
-                        <div class="dropdown">
-                                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                                  Quantity
-                                </button>
-                                <div class="dropdown-menu">
-                                  <a class="dropdown-item" href="#">1</a>
-                                  <a class="dropdown-item" href="#">2</a>
-                                  <a class="dropdown-item" href="#">3</a>
-                                </div>
-                              </div>
-                    </div>
-                    <div class="col">
-                        <img src="inv/laptop.JPG"><br>
-                        <button class="btn btn-danger">Delete</button>
-                        <div class="dropdown">
-                                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                                  Quantity
-                                </button>
-                                <div class="dropdown-menu">
-                                  <a class="dropdown-item" href="#">1</a>
-                                  <a class="dropdown-item" href="#">2</a>
-                                  <a class="dropdown-item" href="#">3</a>
-                                </div>
-                              </div>
-                    </div>
-                    <div class="col">
-                        <img src="inv/laptop.JPG"><br>
-                        <button class="btn btn-danger">Delete</button>
-                        <div class="dropdown">
-                                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                                  Quantity
-                                </button>
-                                <div class="dropdown-menu">
-                                  <a class="dropdown-item" href="#">1</a>
-                                  <a class="dropdown-item" href="#">2</a>
-                                  <a class="dropdown-item" href="#">3</a>
-                                </div>
-                              </div>
-                    </div>
-                  -->
+                  
                 </div>
             </div>
             <div class="col-sm-4" style="background-color:rgb(92, 90, 90)">
